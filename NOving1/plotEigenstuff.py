@@ -22,7 +22,7 @@ def plot_eigenvalues(n, E, x):
     ''' Plots eigenvalues E '''
     plt.figure()
     for i in range(n):
-        plt.plot(x, [E[i]/e_charge/e_charge for l in range(len(x))], label=(r"$E_"+str(i)+"$"))
+        plt.plot(x, [E[i]/e_charge for l in range(len(x))], label=(r"$E_"+str(i)+"$"))
         plt.legend()
     plt.xlabel('x (nm)')
     plt.ylabel('Eigenvalues (eV)')
