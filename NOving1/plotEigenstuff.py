@@ -50,7 +50,7 @@ def plot_eigenfunctions(n, psi, x):
     
 def print_spread(n, E):
     ''' Prints spread between eigenvalues '''
-    for i in range(1,n+1):
+    for i in range(1,n-1):
         ratio = round(E[i]/E[0],3)
         print("The ratio between eigenvalues", i, "and 0 is", ratio)
 

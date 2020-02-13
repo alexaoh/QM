@@ -27,7 +27,7 @@ def E_theoretical(n):
     ''' Returns theoretical energy-values '''
     return (n**2*np.pi**2*h_bar**2)/(2*m*L**2)
 
-def make_lists(n, x):
+def make_lists(n, x): #No need for this. 
     ''' Makes lists out of each theoretical value '''
     psi_theo = np.zeros(len(x))
     E_theo = np.zeros(len(x))
@@ -51,21 +51,25 @@ def plot_theoretical_eigenfunctions(n, x):
 
 def plot_theoretical_eigenvalues(n, x):
     ''' Plots eigenvalues E '''
-    for i in range(n):
+    E_theor = []
+    for i in range(1, n):
         E_theo = E_theoretical(i)
+        E_theor.append(E_theo)
         plt.plot(x, [E_theo/e_charge for l in range(len(x))], label=(r"$E_"+str(i)+"$"))
         plt.legend()
     plt.xlabel('x (nm)')
     plt.ylabel('Eigenvalues (eV)')
     plt.title(str(n)+' theoretical eigenvalues')
     plt.show()
+    return E_theor
+
 
 psi_theo, E_theo = make_lists(n, x)
 
 plot_eigenvalues(n, E, x)
 plot_eigenfunctions(n, psi, x)
-plot_theoretical_eigenvalues(n, x)
+E_theor = plot_theoretical_eigenvalues(n, x)
 plot_theoretical_eigenfunctions(n, x)
 print_spread(n, E)
-print_spread(n, E_theo)
+print_spread(n, E_theor)
 

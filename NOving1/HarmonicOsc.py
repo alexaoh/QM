@@ -16,7 +16,7 @@ N = 100
 dx = 0.1e-10
 L = N*dx
 n = 5
-x = np.arange(0,N*dx,dx)
+x = np.arange(-L/2,L/2,dx)
 
 #k = 10e34 #set k = 1
 #omega = np.sqrt(k/m)
