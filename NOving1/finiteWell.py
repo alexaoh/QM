@@ -14,18 +14,18 @@ h_bar = 1.0546e-34
 m = 9.109e-31
 N = 100
 dx = 0.1e-10
-L = N*dx
+L = (N+1)*dx
 
 x = np.arange(0,N*dx,dx)
 
-w = L/3
+w = L/10
 
-V0 = 10
+V0 = 1e100
 
 #LIGNER VELDIG PÅ PARTIKKEL I BOKS NÅR POTENSIALET ER LITE! HVORFOR DET? bURDE VÆRT NÅR POTENSIALET ER STORT. 
 
 #side = [0]*((N-w)/2)
-middle = [-V0 if -L/2<i<w-L/2 else 0 for i in x] #Endret på grensene, nå ligner det på partikkel i boks uansett. 
+middle = [-V0 if L/2-w<i<L/2+w else 0 for i in x] #Endret på grensene, nå ligner det på partikkel i boks uansett. 
 #V = side + middle + side
 V = middle
 

@@ -31,16 +31,21 @@ def plot_eigenvalues(n, E, x):
 
 
 def plot_eigenfunctions(n, psi, x):
-    ''' Plots eigenfunctions psi '''
+    ''' Plots eigenfunctions psi '''        
     for i in range(n):
-        plt.plot(x, psi[:, i], label=(r"$\psi_"+str(i)+"$"))
+        if (psi.shape == (N,N)):
+            plt.plot(x, psi[:, i], label=(r"$\psi_"+str(i)+"$"))
+        elif (psi.shape == (len(x),)):
+            plt.plot(x,psi, label=(r"$\psi_"+str(i)+"$"))
+        else:  
+            raise Exception('Wrong dimension in the array')
         plt.legend()
     #plt.xlim(0.0, 0.2*10e-9)
     plt.xlabel('x (nm)')
     plt.ylabel('Eigenfunctions')
     plt.title(str(n)+' eigenfunctions')
     plt.show()
-
+    
 def print_spread(n, E):
     ''' Prints spread between eigenvalues '''
     for i in range(1,n+1):
