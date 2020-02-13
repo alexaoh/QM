@@ -54,7 +54,7 @@ def make_lists(n, x):
     return psi_theo, E_theo
 
 E, psi = E_and_psi(x, V)
-E_theo, psi_theo = make_lists(n, x)
+psi_theo, E_theo = make_lists(n, x)
 
 plot_eigenvalues(n, E, x)
 plot_eigenfunctions(n, psi, x)

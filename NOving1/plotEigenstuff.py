@@ -1,6 +1,7 @@
 from scipy.linalg import eigh_tridiagonal
 import numpy as np
 import matplotlib.pyplot as plt
+#from particleInBox import make_lists
 
 h_bar = 1.0546e-34
 m = 9.109e-31
@@ -33,6 +34,7 @@ def plot_eigenvalues(n, E, x):
 def plot_eigenfunctions(n, psi, x):
     ''' Plots eigenfunctions psi '''        
     for i in range(n):
+        #psi_theo, E_theo = make_lists(n, x)
         if (psi.shape == (N,N)):
             plt.plot(x, psi[:, i], label=(r"$\psi_"+str(i)+"$"))
         elif (psi.shape == (len(x),)):
