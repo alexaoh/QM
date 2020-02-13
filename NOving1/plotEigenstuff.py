@@ -7,6 +7,7 @@ m = 9.109e-31
 N = 100
 dx = 0.1e-10
 L = N*dx
+e_charge = 1.602e-19
 
 x = np.arange(0,N*dx,dx)
 
@@ -21,10 +22,10 @@ def plot_eigenvalues(n, E, x):
     ''' Plots eigenvalues E '''
     plt.figure()
     for i in range(n):
-        plt.plot(x, [E[i] for l in range(len(x))], label=(r"$E_"+str(i)+"$"))
+        plt.plot(x, [E[i]/e_charge/e_charge for l in range(len(x))], label=(r"$E_"+str(i)+"$"))
         plt.legend()
     plt.xlabel('x (nm)')
-    plt.ylabel('Eigenvalues')
+    plt.ylabel('Eigenvalues (eV)')
     plt.title(str(n)+' eigenvalues')
     plt.show()
 
@@ -34,6 +35,7 @@ def plot_eigenfunctions(n, psi, x):
     for i in range(n):
         plt.plot(x, psi[:, i], label=(r"$\psi_"+str(i)+"$"))
         plt.legend()
+    #plt.xlim(0.0, 0.2*10e-9)
     plt.xlabel('x (nm)')
     plt.ylabel('Eigenfunctions')
     plt.title(str(n)+' eigenfunctions')

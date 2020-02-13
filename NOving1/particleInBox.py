@@ -14,7 +14,7 @@ V = [0 for i in range(len(x))]
 
 E, psi = E_and_psi(x, V)
 
-#plot_eigenvalues(5, E, x)
+plot_eigenvalues(5, E, x)
 plot_eigenfunctions(5, psi, x)
 print_spread(5, E)
 
